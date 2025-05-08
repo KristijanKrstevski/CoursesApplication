@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CoursesApplication.Domain.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <!-- TODO: Add CreateExamSession button -->
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEnrolled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReEnrolled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEnrolled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReEnrolled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Index)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                <!-- TODO: Add Delete button -->
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
